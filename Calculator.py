@@ -60,7 +60,7 @@ while True:
                 continue
             case "div":
                 result = (num1 / num2)
-                messagebox.showinfo("QOUTIENT:", result)
+                messagebox.showinfo("QUOTIENT:", result)
                 try_again()
                 continue
             case other:
