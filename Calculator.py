@@ -34,29 +34,29 @@ def try_again():
 
 while True:
     try:
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-        operation = input("Enter operation to be use: add, sub, mult, div: ") 
+        num1 = simpledialog.askinteger("input 1", "Enter first number: ", parent=ws)
+        num2 = simpledialog.askinteger("input 2", "Enter second number: ", parent=ws)
+        operation = simpledialog.askstring("operation", "Enter operation to be use: add, sub, mult, div: ", parent=ws) 
 
         match operation:
             case "add": 
               result = (num1 + num2)
-              print("Result:", result)
+              messagebox.showinfo("Result:", result)
             
             case  "sub":
               result = num1 - num2 
-              print("Result:", result)
+              messagebox.showinfo("Result:", result)
 
             case "mult" :
                 result = (num1 * num2) 
-                print("Result:", result)
+                messagebox.showinfo("Result:", result)
 
             case "div":
                 result = (num1 / num2)
-                print("Result:", result)
+                messagebox.showinfo("Result:", result)
 
             case other:
-                print("Please choose among the given keyword only")
+                messagebox.showinfo("Please choose among the given keyword only")
         try_again()
 
     except ZeroDivisionError:
@@ -66,5 +66,6 @@ while True:
     except:
         print("Invalid Input! Please enter a valid input!")
         try_again()
-            
+        
+    ws.mainloop()
             
