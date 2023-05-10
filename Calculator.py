@@ -44,10 +44,12 @@ while True:
             case "add": 
                 result = (num1 + num2)
                 messagebox.showinfo("SUM:", result)
+                try_again()
                 continue               
             case  "sub":
                 result = num1 - num2 
                 messagebox.showinfo("DIFFERENCE:", result)
+                try_again()
                 continue
             case "mult" :
                 result = (num1 * num2) 
