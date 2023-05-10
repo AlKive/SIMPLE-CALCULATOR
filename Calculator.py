@@ -27,11 +27,11 @@ def try_again():
                 retry = str(enter_again)
                 continue
             elif enter_again.upper() == "NO" or enter_again.lower() == "n":
-                messagebox.askquestion("CALCULATION ENDED❤", parent=ws)
+                messagebox.showinfo("CALCULATION ENDED❤", parent=ws)
                 time.sleep(3)
                 exit()
             else:
-                continue   
+                exit()   
         except ValueError:
             print("ERROR! Please choose either y or n only.")
 
