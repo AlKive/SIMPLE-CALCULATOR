@@ -14,6 +14,8 @@ from tkinter import simpledialog
 from tkinter import messagebox
 ws = Tk()
 ws.title("SIMPLE CALCULATOR")
+ws.geometry('400x300')
+ws.config(bg='#4a7a8c')
 
 def try_again():
     retry = None
@@ -37,24 +39,24 @@ while True:
         operation = input("Enter operation to be use: add, sub, mult, div: ") 
 
         match operation:
-            case == "add" 
-              result = num1 + num2 
+            case "add": 
+              result = (num1 + num2)
               print("Result:", result)
             
-            case == "sub" :
+            case  "sub":
               result = num1 - num2 
               print("Result:", result)
 
-            case == "mult" :
-                result = num1 * num2 
+            case "mult" :
+                result = (num1 * num2) 
                 print("Result:", result)
 
-            case == "div" :
-                result = num1 / num2
+            case "div":
+                result = (num1 / num2)
                 print("Result:", result)
 
             case other:
-                print("Please choose among 1, 2, 3, 4 only")
+                print("Please choose among the given keyword only")
         try_again()
 
     except ZeroDivisionError:
