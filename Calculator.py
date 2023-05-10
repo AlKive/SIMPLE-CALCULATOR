@@ -21,7 +21,7 @@ ws.config(bg='#4a7a8c')
 def try_again():
     retry = None
     while retry is None:
-        enter_again = simpledialog.askstring("try", "\nDo you want to try again?: ", parent=ws)
+        enter_again = simpledialog.askstring("try", "\nDo you want to try again?: enter y or n only: ", parent=ws)
         try:
             if enter_again.upper() == "YES" or enter_again.lower() == "y":
                 retry = str(enter_again)
@@ -31,7 +31,7 @@ def try_again():
                 time.sleep(3)
                 exit()
             else:
-                exit()   
+              break   
         except ValueError:
             print("ERROR! Please choose either y or n only.")
 
@@ -62,15 +62,17 @@ while True:
                 messagebox.showinfo("QUOTIENT:", result)
                 try_again()
                 continue
+            case "":
+                messagebox.showinfo("Please enter a keyword")
+                try_again()
             case other:
                 messagebox.showinfo("Please choose among the given keyword only")
-                continue
+                try_again()
       
     except ZeroDivisionError:
         messagebox.showerror("ERROR!! Dividing by zero is not allowed!")
         try_again()
         continue
-
     except:
         exit()
         
