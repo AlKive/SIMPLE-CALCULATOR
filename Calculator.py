@@ -20,15 +20,17 @@ ws.config(bg='#4a7a8c')
 def try_again():
     retry = None
     while retry is None:
-        again = input("\nDo you want to try again (y/n)? ")
+        enter_again = simpledialog.askstring("\nDo you want to try again?: ", parent=ws)
         try:
-            if again.lower() == "y":
-                retry = str(again)
+            if enter_again.upper() == "YES" or enter_again.lower() == "y":
+                retry = str(enter_again)
                 continue
-            elif again.lower() == "n":
-                exit("\nTHANK YOU FOR USING MY PROGRAM! ❤")
+            elif enter_again.upper() == "NO" or enter_again.lower() == "n":
+                exit(Fore.RED + "\nTHANK YOU FOR USING MY PROGRAM! ❤")
             else:
-                print("ERROR! Please choose either y or n only.")
+                print(Fore.RED + "ERROR! Invalid input.") 
+
+               
         except ValueError:
             print("ERROR! Please choose either y or n only.")
 
@@ -41,31 +43,32 @@ while True:
         match operation:
             case "add": 
               result = (num1 + num2)
-              messagebox.showinfo("Result:", result)
+              messagebox.showinfo("SUM:", result)
             
             case  "sub":
               result = num1 - num2 
-              messagebox.showinfo("Result:", result)
+              messagebox.showinfo("DIFFERENCE:", result)
 
             case "mult" :
                 result = (num1 * num2) 
-                messagebox.showinfo("Result:", result)
+                messagebox.showinfo("PRODUCT:", result)
 
             case "div":
                 result = (num1 / num2)
-                messagebox.showinfo("Result:", result)
+                messagebox.showinfo("QOUTIENT:", result)
 
             case other:
                 messagebox.showinfo("Please choose among the given keyword only")
         try_again()
 
     except ZeroDivisionError:
-        print("ERROR!! Dividing by zero is not allowed!")
+        messagebox.showinfo("ERROR!! Dividing by zero is not allowed!")
         try_again()
 
     except:
-        print("Invalid Input! Please enter a valid input!")
+        messagebox.showinfo("Invalid Input! Please enter a valid input!")
         try_again()
         
     ws.mainloop()
+  
             
