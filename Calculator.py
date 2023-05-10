@@ -15,18 +15,54 @@ from tkinter import messagebox
 ws = Tk()
 ws.title("SIMPLE CALCULATOR")
 
-def add():
- while True: 
-    try:  
-            num1 = simpledialog.askinteger("Enter a number: ")
-            num2 = simpledialog.askinteger("Enter a second number: ")
-     if num1 and num2 is not None:
+def try_again():
+    retry = None
+    while retry is None:
+        again = input("\nDo you want to try again (y/n)? ")
+        try:
+            if again.lower() == "y":
+                retry = str(again)
+                continue
+            elif again.lower() == "n":
+                exit("\nTHANK YOU FOR USING MY PROGRAM! ❤")
+            else:
+                print("ERROR! Please choose either y or n only.")
+        except ValueError:
+            print("ERROR! Please choose either y or n only.")
+
+while True:
+    try:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        operation = input("Enter operation to be use: add, sub, mult, div: ") 
+
+        match operation:
+            case == "add" 
+              result = num1 + num2 
+              print("Result:", result)
             
-     else:
-           print("You don't have a first name?")
-            parent=ws,
-    except:  
-            messagebox.showerror('Error Encountered', 'Error: Please enter a valid input!')
-        finally
+            case == "sub" :
+              result = num1 - num2 
+              print("Result:", result)
+
+            case == "mult" :
+                result = num1 * num2 
+                print("Result:", result)
+
+            case == "div" :
+                result = num1 / num2
+                print("Result:", result)
+
+            case other:
+                print("Please choose among 1, 2, 3, 4 only")
+        try_again()
+
+    except ZeroDivisionError:
+        print("ERROR!! Dividing by zero is not allowed!")
+        try_again()
+
+    except:
+        print("Invalid Input! Please enter a valid input!")
+        try_again()
             
             
