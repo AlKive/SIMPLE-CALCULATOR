@@ -20,7 +20,7 @@ ws.config(bg='#4a7a8c')
 def try_again():
     retry = None
     while retry is None:
-        enter_again = simpledialog.askstring("\nDo you want to try again?: ", parent=ws)
+        enter_again = simpledialog.askstring("try", "\nDo you want to try again?: ", parent=ws)
         try:
             if enter_again.upper() == "YES" or enter_again.lower() == "y":
                 retry = str(enter_again)
@@ -42,21 +42,22 @@ while True:
 
         match operation:
             case "add": 
-              result = (num1 + num2)
-              messagebox.showinfo("SUM:", result)
-            
+                result = (num1 + num2)
+                messagebox.showinfo("SUM:", result)
+                continue               
             case  "sub":
-              result = num1 - num2 
-              messagebox.showinfo("DIFFERENCE:", result)
-
+                result = num1 - num2 
+                messagebox.showinfo("DIFFERENCE:", result)
+                continue
             case "mult" :
                 result = (num1 * num2) 
                 messagebox.showinfo("PRODUCT:", result)
-
+                try_again()
+                continue
             case "div":
                 result = (num1 / num2)
                 messagebox.showinfo("QOUTIENT:", result)
-
+                continue
             case other:
                 messagebox.showinfo("Please choose among the given keyword only")
         try_again()
@@ -64,10 +65,12 @@ while True:
     except ZeroDivisionError:
         messagebox.showinfo("ERROR!! Dividing by zero is not allowed!")
         try_again()
+        continue
 
     except:
         messagebox.showinfo("Invalid Input! Please enter a valid input!")
         try_again()
+        continue
         
     ws.mainloop()
   
