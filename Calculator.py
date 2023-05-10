@@ -26,7 +26,7 @@ def try_again():
                 retry = str(enter_again)
                 continue
             elif enter_again.upper() == "NO" or enter_again.lower() == "n":
-                messagebox.showinfo(Fore.RED + "\n CALCULATION ENDED❤", parent=ws)
+                messagebox.showinfo("CALCULATION ENDED❤", parent=ws)
                 time.sleep(3)
                 exit()
             else:
@@ -65,18 +65,18 @@ while True:
                 continue
             case other:
                 messagebox.showinfo("Please choose among the given keyword only")
-        try_again()
-        continue
+                continue
+      
     except ZeroDivisionError:
-        messagebox.showinfo("ERROR!! Dividing by zero is not allowed!")
+        messagebox.showerror("ERROR!! Dividing by zero is not allowed!")
         try_again()
         continue
 
     except:
-        messagebox.showinfo("Invalid Input! Please enter a valid input!")
+        messagebox.showerror("Invalid Input! Please enter a valid input!")
         try_again()
         continue
         
-    ws.mainloop()
+ws.mainloop()
   
             
