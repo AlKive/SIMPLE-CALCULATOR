@@ -26,20 +26,18 @@ def try_again():
                 retry = str(enter_again)
                 continue
             elif enter_again.upper() == "NO" or enter_again.lower() == "n":
-                messagebox.showinfo("CALCULATION ENDED❤", parent=ws)
+                messagebox.askquestion("CALCULATION ENDED❤", parent=ws)
                 time.sleep(3)
                 exit()
             else:
-                print(Fore.RED + "ERROR! Invalid input.") 
-
-               
+                continue    
         except ValueError:
             print("ERROR! Please choose either y or n only.")
 
 while True:
     try:
-        num1 = simpledialog.askinteger("input 1", "Enter first number: ", parent=ws)
-        num2 = simpledialog.askinteger("input 2", "Enter second number: ", parent=ws)
+        num1 = simpledialog.askfloat("input 1", "Enter first number: ", parent=ws)
+        num2 = simpledialog.askfloat("input 2", "Enter second number: ", parent=ws)
         operation = simpledialog.askstring("operation", "Enter operation to be use: add, sub, mult, div: ", parent=ws) 
 
         match operation:
@@ -73,9 +71,7 @@ while True:
         continue
 
     except:
-        messagebox.showerror("Invalid Input! Please enter a valid input!")
-        try_again()
-        continue
+        exit()
         
 ws.mainloop()
   
